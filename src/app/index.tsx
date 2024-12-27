@@ -1,9 +1,12 @@
-import { Link } from "expo-router";
+import {Link, useRouter} from "expo-router";
 import React from "react";
-import { Text, View } from "react-native";
+import {Button, Text, View} from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
-export default function Page() {
+export default function Index() {
+  console.log('Index');
+
+
   return (
     <View className="flex flex-1">
       <Header />
@@ -14,6 +17,7 @@ export default function Page() {
 }
 
 function Content() {
+  const router = useRouter();
   return (
     <View className="flex-1">
       <View className="py-12 md:py-24 lg:py-32 xl:py-48">
@@ -37,6 +41,8 @@ function Content() {
               >
                 Explore
               </Link>
+
+              <Button title={'Explore'} onPress={() => router.push('/pages/Test')}/>
             </View>
           </View>
         </View>
