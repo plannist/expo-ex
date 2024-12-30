@@ -19,9 +19,9 @@ const BottomTab = () => {
                 }}
             />
             <Tabs.Screen
-                name=""
+                name="set"
                 options={{
-                    title: 'Settings',
+                    title: 'App Setting',
                     tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
                 }}
             />

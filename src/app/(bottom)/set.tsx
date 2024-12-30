@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-const settings = () => {
+const set = () => {
     return (
         <View style={styles.container}>
             <Text>Tab [Settings]</Text>
@@ -16,4 +16,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default settings;
+export default set;
