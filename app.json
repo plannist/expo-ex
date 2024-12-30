@@ -4,6 +4,10 @@
     "userInterfaceStyle": "automatic",
     "orientation": "default",
     "newArchEnabled": true,
+    "android": {
+      "softwareKeyboardLayoutMode": "pan",
+      "package": "com.tagerjs.framework"
+    },
     "web": {
       "output": "static",
       "bundler": "metro"
@@ -15,8 +19,23 @@
           "origin": "https://n"
         }
       ]
+    ,
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#2E3C4B",
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 150
+        }
+      ]
     ],
     "name": "framework",
-    "slug": "framework"
+    "slug": "framework",
+    "extra": {
+      "eas": {
+        "projectId": "ddafd25f-bde9-4e77-b64b-c34ea130aa7c"
+      }
+    },
+    "owner": "tagerjs"
   }
 }

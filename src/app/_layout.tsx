@@ -1,14 +1,19 @@
 import "../global.css";
-import { Slot } from "expo-router";
-import { StyleSheet } from 'react-native';
-import { ThemeProvider } from '@react-navigation/native';
+import {Slot, Stack} from "expo-router";
+import {KeyboardAvoidingView, Platform, StyleSheet, View} from 'react-native';
+import {
+    DarkTheme,
+    DefaultTheme,
+    ThemeProvider,
+} from "@react-navigation/native";
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { KeyboardProvider } from 'react-native-keyboard-controller';
 
 import {
   configureReanimatedLogger,
   ReanimatedLogLevel,
 } from 'react-native-reanimated';
+
+import { useColorScheme } from 'react-native';
 
 configureReanimatedLogger({
   level: ReanimatedLogLevel.warn,
@@ -18,16 +23,23 @@ configureReanimatedLogger({
 export default function Layout() {
   console.log('1. Layout >> ');
 
+  const colorScheme = useColorScheme();
+
 
   return(
-      <GestureHandlerRootView
+      <KeyboardAvoidingView
           style={styles.container}
-          className={'dark'}
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
-          <KeyboardProvider>
-            <Slot />
-          </KeyboardProvider>
-      </GestureHandlerRootView>
+      <GestureHandlerRootView style={styles.container} className={'dark'}>
+          <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+                <Stack>
+                  {/*<Stack.Screen name='Board'/>*/}
+                    <Stack.Screen name="(bottom)" options={{ headerShown: false }} />
+                </Stack>
+           </ThemeProvider>
+       </GestureHandlerRootView>
+      </KeyboardAvoidingView>
   );
 }
 
