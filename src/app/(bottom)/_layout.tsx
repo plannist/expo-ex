@@ -3,7 +3,7 @@ import {FontAwesome} from "@expo/vector-icons";
 
 const BottomTab = () => {
     return (
-        <Tabs screenOptions={{tabBarActiveTintColor:'blue'}}>
+        <Tabs screenOptions={{tabBarActiveTintColor:'orange'}}>
             <Tabs.Screen
                 name="index"
                 options={{
