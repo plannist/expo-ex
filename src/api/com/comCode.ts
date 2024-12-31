@@ -9,6 +9,8 @@ interface ComCdType {
     grpCd : string,
     grpCdNm: string
 }
+
+//파라미터 변수
 type Variables = void;
 
 /**
