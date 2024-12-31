@@ -15,6 +15,9 @@ import {
 
 import { useColorScheme } from 'react-native';
 
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+
 configureReanimatedLogger({
   level: ReanimatedLogLevel.warn,
   strict: false,  // Disable strict mode
@@ -24,6 +27,7 @@ export default function Layout() {
   console.log('1. Layout >> ');
 
   const colorScheme = useColorScheme();
+  const queryClient = new QueryClient();
 
 
   return(
@@ -33,10 +37,12 @@ export default function Layout() {
       >
       <GestureHandlerRootView style={styles.container} className={'dark'}>
           <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+              <QueryClientProvider client={queryClient}>
                 <Stack>
                   {/*<Stack.Screen name='Board'/>*/}
                     <Stack.Screen name="(bottom)" options={{ headerShown: false }} />
                 </Stack>
+              </QueryClientProvider>
            </ThemeProvider>
        </GestureHandlerRootView>
       </KeyboardAvoidingView>
