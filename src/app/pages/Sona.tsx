@@ -4,9 +4,6 @@ import {useEffect} from "react";
 import {useSearchComCode} from "@/api/com/comCode";
 
 
-
-
-
 const Sona = () => {
     //react-query-kit
     const {data, isLoading, error} = useSearchComCode();
