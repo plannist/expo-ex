@@ -35,5 +35,9 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
 4. obytes 의 android, ios 폴더가 생기는 이유는 react-native-keyboard-controller
    를 사용하기 때문이다 해당 라이브러리는 Native 기반 컨테이너 components 이다.
 5. react-native-keyboard-controller 제거 및 KeyboardAvoidingView 대체
+6. Bare Workflow 프로젝트 전환
+ - expo prebuild > android 폴더생성
+ - npx react-native run-android
+ - 에러시 > npx react-native doctor
 
 ```

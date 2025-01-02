@@ -12,6 +12,7 @@
   "dependencies": {
     "@tanstack/react-query": "^5.62.11",
     "axios": "^1.7.9",
+    "dotenv": "^16.4.7",
     "expo": "^52.0.16",
     "expo-constants": "~17.0.3",
     "expo-linking": "~7.0.3",
@@ -33,6 +34,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@react-native-community/cli": "latest",
     "@types/lodash": "^4.17.13",
     "@types/react": "~18.3.12",
     "typescript": "~5.3.3"
