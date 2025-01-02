@@ -17,11 +17,24 @@ import { useColorScheme } from 'react-native';
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
+import * as SplashScreen from 'expo-splash-screen';
+import {useEffect} from "react";
+
 
 configureReanimatedLogger({
   level: ReanimatedLogLevel.warn,
   strict: false,  // Disable strict mode
 });
+
+// Keep the splash screen visible while we fetch resources
+SplashScreen.preventAutoHideAsync();
+
+// Set the animation options. This is optional.
+SplashScreen.setOptions({
+    duration: 1000,
+    fade: true,
+});
+
 
 export default function Layout() {
   console.log('1. Layout >> ');
@@ -30,12 +43,19 @@ export default function Layout() {
   const queryClient = new QueryClient();
 
 
+
   return(
       <KeyboardAvoidingView
           style={styles.container}
           behavior={Platform.OS === "ios" ? "padding" : "height"}
       >
-      <GestureHandlerRootView style={styles.container} className={'dark'}>
+      <GestureHandlerRootView
+          style={styles.container}
+          className={'dark'}
+          onLayout={(event)=>{
+              SplashScreen.hide();
+          }}
+      >
           <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
               <QueryClientProvider client={queryClient}>
                 <Stack>

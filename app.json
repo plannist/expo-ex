@@ -18,8 +18,7 @@
         {
           "origin": "https://n"
         }
-      ]
-    ,
+      ],
       [
         "expo-splash-screen",
         {
@@ -36,6 +35,9 @@
         "projectId": "ddafd25f-bde9-4e77-b64b-c34ea130aa7c"
       }
     },
-    "owner": "tagerjs"
+    "owner": "tagerjs",
+    "ios": {
+      "bundleIdentifier": "com.tagerjs.framework"
+    }
   }
 }
