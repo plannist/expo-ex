@@ -1,4 +1,4 @@
-import {Text} from "react-native";
+import {ActivityIndicator, Text} from "react-native";
 import {useEffect} from "react";
 
 import {useSearchComCode} from "@/api/com/comCode";
@@ -18,7 +18,7 @@ const Sona = () => {
     }, [])
 
     //TODO: 로딩바 구현
-    if (isLoading) return <Text>Loading...</Text>;
+    if (isLoading) return <ActivityIndicator size="large" />;
     //TODO: alert 구현
     if (error instanceof Error) return <Text>Error: {error.message}</Text>;
 
