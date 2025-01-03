@@ -42,6 +42,17 @@ export default function Layout() {
   const colorScheme = useColorScheme();
   const queryClient = new QueryClient();
 
+  useEffect(()=>{
+      console.log('2. useEffect >> ');
+      // 앱 로딩 후 스플래시 화면 숨기기
+      const prepareApp = async () => {
+          // 데이터를 로드하거나 초기화 작업 수행
+          await new Promise(resolve => setTimeout(resolve, 3000)); // 3초 대기
+          await SplashScreen.hideAsync();
+      };
+
+      prepareApp();
+  }, [])
 
 
   return(
@@ -52,9 +63,9 @@ export default function Layout() {
       <GestureHandlerRootView
           style={styles.container}
           className={'dark'}
-          onLayout={(event)=>{
-              SplashScreen.hide();
-          }}
+          // onLayout={(event)=>{
+          //     SplashScreen.hide();
+          // }}
       >
           <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
               <QueryClientProvider client={queryClient}>

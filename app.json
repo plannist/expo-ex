@@ -18,12 +18,13 @@
         {
           "origin": "https://n"
         }
-      ],
+      ]
+    ,
       [
         "expo-splash-screen",
         {
           "backgroundColor": "#2E3C4B",
-          "image": "./assets/splash-icon.png",
+          "image": "./assets/pngwing.com.png",
           "imageWidth": 150
         }
       ]

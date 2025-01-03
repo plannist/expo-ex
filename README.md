@@ -24,7 +24,7 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
 
 ## EAS 빌드 명령어
 ```sh
-    eas build -p android --profile production
+    eas build -p android --profile development
 ```
 
 ## rule
