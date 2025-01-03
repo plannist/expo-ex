@@ -28,7 +28,7 @@ const index = () => {
                                 SONA
                             </Link>
 
-                            <Button title={'Test'} onPress={() => router.push('/pages/Test')}/>
+                            <Button title={'TEST'} onPress={() => router.push('/pages/Test')}/>
                         </View>
                     </View>
                 </View>

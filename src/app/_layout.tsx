@@ -20,6 +20,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import * as SplashScreen from 'expo-splash-screen';
 import {useEffect} from "react";
 
+import { StatusBar } from 'expo-status-bar';
+
 
 configureReanimatedLogger({
   level: ReanimatedLogLevel.warn,
@@ -63,9 +65,6 @@ export default function Layout() {
       <GestureHandlerRootView
           style={styles.container}
           className={'dark'}
-          // onLayout={(event)=>{
-          //     SplashScreen.hide();
-          // }}
       >
           <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
               <QueryClientProvider client={queryClient}>
@@ -73,6 +72,8 @@ export default function Layout() {
                   {/*<Stack.Screen name='Board'/>*/}
                     <Stack.Screen name="(bottom)" options={{ headerShown: false }} />
                 </Stack>
+                  {/* 상태 표시줄 색상 변경 */}
+                  <StatusBar style="auto" backgroundColor="rgb(242, 242, 242)" />
               </QueryClientProvider>
            </ThemeProvider>
        </GestureHandlerRootView>
