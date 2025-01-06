@@ -22,10 +22,13 @@ import {useEffect} from "react";
 
 import { StatusBar } from 'expo-status-bar';
 
+import '@/lang/i18n';
+import { useTranslation } from 'react-i18next';
+
 
 configureReanimatedLogger({
   level: ReanimatedLogLevel.warn,
-  strict: false,  // Disable strict mode
+  strict: false,  // Disable strict moder
 });
 
 // Keep the splash screen visible while we fetch resources
@@ -38,14 +41,19 @@ SplashScreen.setOptions({
 });
 
 
-export default function Layout() {
+const Layout = () =>  {
   console.log('1. Layout >> ');
 
   const colorScheme = useColorScheme();
   const queryClient = new QueryClient();
+  const { t, i18n } = useTranslation();
 
   useEffect(()=>{
       console.log('2. useEffect >> ');
+
+      //TODO: 언어팩 선택 backend 처리
+      // i18n.changeLanguage("en")
+
       // 앱 로딩 후 스플래시 화면 숨기기
       const prepareApp = async () => {
           // 데이터를 로드하거나 초기화 작업 수행
@@ -80,6 +88,8 @@ export default function Layout() {
       </KeyboardAvoidingView>
   );
 }
+
+export default Layout;
 
 const styles = StyleSheet.create({
   container: {

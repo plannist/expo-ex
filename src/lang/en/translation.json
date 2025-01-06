@@ -1,0 +1,7 @@
+{
+  "welcome": "welcome",
+  "description": "This is an example of i18n in RN.",
+  "id": "ID",
+  "name": "NAME",
+  "age": "AGE"
+}
