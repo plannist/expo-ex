@@ -1,7 +1,7 @@
 import {Stack, useRouter} from "expo-router";
 import {Button, TextInput, View, StyleSheet} from "react-native";
 import {useTranslation} from "react-i18next";
-import {useEffect, useState} from "react";
+// import {useEffect, useState} from "react";
 
 const Test = () => {
     const router = useRouter();
@@ -25,13 +25,13 @@ const Test = () => {
             />
 
             <View className="flex-1 justify-items-center m-2">
-                <TextInput placeholder={t('id')} style={{borderStyle:'solid', backgroundColor:'gray', height:50, marginBottom:10}}/>
-                <TextInput placeholder={t('name')} style={{borderStyle:'solid', backgroundColor:'gray', height:50, marginBottom:10}}/>
-                <TextInput placeholder={t('age')} style={{borderStyle:'solid', backgroundColor:'gray', height:50, marginBottom:10}}/>
+                <TextInput placeholder={t('translation.id')} style={{borderStyle:'solid', backgroundColor:'gray', height:50, marginBottom:10}}/>
+                <TextInput placeholder={t('translation.name')} style={{borderStyle:'solid', backgroundColor:'gray', height:50, marginBottom:10}}/>
+                <TextInput placeholder={t('translation.age')} style={{borderStyle:'solid', backgroundColor:'gray', height:50, marginBottom:10}}/>
 
                 <View className={'[width:80%] flex-row justify-between'}>
 
-                    <Button title={'언어변환'} onPress={()=>{
+                    <Button title={t('com.trans')} onPress={()=>{
                         if(language === 'ko'){
                             setLanguage('en');
                         }else{

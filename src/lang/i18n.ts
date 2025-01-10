@@ -1,7 +1,9 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import ko from '@/lang/ko/translation.json';
-import en from '@/lang/en/translation.json';
+import ko from '@/lang/ko';
+import en from '@/lang/en';
+
+console.log("ko : ", ko );
 
 //번역데이터 lang 폴더
 const resources = {
@@ -14,8 +16,6 @@ const resources = {
 }
 
 export type Language = keyof typeof resources;
-
-// console.log("ko: ", ko);
 
 i18n
     .use(initReactI18next)
