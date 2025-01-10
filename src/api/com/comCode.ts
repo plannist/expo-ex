@@ -24,6 +24,8 @@ const useSearchComCode = createQuery<ComCdType, Variables, AxiosError>({
     }
 });
 
+
+
 export {
-    useSearchComCode
+    useSearchComCode,
 }

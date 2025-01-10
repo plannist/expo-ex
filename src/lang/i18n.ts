@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import ko from '@/lang/ko';
 import en from '@/lang/en';
 
-console.log("ko : ", ko );
+// console.log("ko : ", ko );
 
 //번역데이터 lang 폴더
 const resources = {
