@@ -27,7 +27,14 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
     eas build -p android --profile development
 ```
 
-
+## IOS 디버깅 순서
+```sh
+    pnpm run start
+    expo prebuild
+    cd ios
+    pod install
+    xcode > build 버튼 클릭
+```
 
 ## 모듈기능 요약
 ```markdown
@@ -44,6 +51,7 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
 11. react-i18next, i18next, i18next-http-backend : 다국어 관리 도구
 12. lodash : js 유틸
 13. prime-base dependency > moti, svg, i18n, @gorhom/bottom
+14. expo-build-properties : native build 설정
 ```
 
 ## 폴더 구조 및 파일기능
@@ -103,4 +111,9 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
     - node_modules, package-lock.json 삭제
     - pnpm install
     - .npmrc 파일생성 (pnpm 설정파일 optional)
+7. mmkv-storage IOS 빌드 에러 이슈
+    - expo-build-properties 설치 
+    - app.json 파일에 설정 (mmkv, mmkvCore)
+    - ios 폴더 이동 후 pod install
+
 ```
