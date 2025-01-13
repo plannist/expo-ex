@@ -72,6 +72,7 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
       |_ icon
       |_ image
       |_ font
+    script [node 스크립트 파일]
     src
       |_ api [영역별 서버 통신]
       |_ app
@@ -81,9 +82,12 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
       |_ lang [다국어]
       |_ storage [토큰, 세션 등]
       |_ store [공통코드 등]
-    .env
+    .env.dev
+    .env.local
+    .env.prod
     .npmrc
     app.json
+    auto.d.ts [사용자 type 지정]
     bable.config.js
     eas.json
     global.d.ts
