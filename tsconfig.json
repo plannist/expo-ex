@@ -5,13 +5,15 @@
       "@/*": [
         "./src/*"
       ]
-    }
+    },
+//    "types": ["react-native", "react-native-dotenv"]  // types 추가
   },
   "extends": "expo/tsconfig.base",
   "include": [
     "global.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "nativewind-env.d.ts"
+    "nativewind-env.d.ts",
+    "auto.d.ts"
   ]
 }

@@ -43,6 +43,9 @@
                 "version": "1.3.9"
               }
             ]
+          },
+          "android": {
+            "namespace": "com.tagerjs.framework"
           }
         }
       ]

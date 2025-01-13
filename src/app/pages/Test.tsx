@@ -3,11 +3,22 @@ import {Button, TextInput, View, StyleSheet, ActivityIndicator} from "react-nati
 import {useTranslation} from "react-i18next";
 import {useEffect, useState} from "react";
 import {useSearchBoardTest, useCreateTest, useLoginTest} from "@/api/test/test";
+import {PROFILE, API_URL} from '@env';
+import { Text } from 'react-native-sj-prime-base';
+import { FlashList } from "@shopify/flash-list";
 
 const Test = () => {
     const router = useRouter();
     const {t, i18n} = useTranslation();
     const [language, setLanguage] = useState('ko');
+    const DATA = [
+        {
+            title: "First Item",
+        },
+        {
+            title: "Second Item",
+        },
+    ];
 
     //react-query-kit
     const {data, isLoading, error} = useLoginTest({variables: {
@@ -22,6 +33,11 @@ const Test = () => {
     const {data:boardData, isLoading:boardLoading, error:boardError} = useSearchBoardTest({
         variables: {userId: 1, id:1}
     });
+
+    useEffect(()=>{
+        console.log("PROFILE: ", PROFILE);
+        console.log("API_URL: ", API_URL);
+    }, [])
 
     useEffect(() => {
         console.log("useSearchBoardTest data :: >>", boardData);
@@ -60,9 +76,18 @@ const Test = () => {
             />
 
             <View className="flex-1 justify-items-center m-2">
+                {/*<Text face={'body'} size={"medium"}>Prime</Text>*/}
+
                 <TextInput placeholder={t('translation.id')} style={{borderStyle:'solid', backgroundColor:'gray', height:50, marginBottom:10}}/>
                 <TextInput placeholder={t('translation.name')} style={{borderStyle:'solid', backgroundColor:'gray', height:50, marginBottom:10}}/>
                 <TextInput placeholder={t('translation.age')} style={{borderStyle:'solid', backgroundColor:'gray', height:50, marginBottom:10}}/>
+
+                {/* flash-list 사용법 */}
+                <FlashList
+                    data={DATA}
+                    renderItem={({ item }) => <Text face={'body'} size={"medium"}>{item.title}</Text>}
+                    estimatedItemSize={200}
+                />
 
                 <View className={'[width:80%] flex-row justify-between'}>
 

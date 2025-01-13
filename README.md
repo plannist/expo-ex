@@ -27,6 +27,13 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
     eas build -p android --profile development
 ```
 
+## AOS 디버깅 순서
+```sh
+    pnpm run start
+    expo prebuild
+    npx expo run:android
+```
+
 ## IOS 디버깅 순서
 ```sh
     pnpm run start
@@ -52,6 +59,11 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
 12. lodash : js 유틸
 13. prime-base dependency > moti, svg, i18n, @gorhom/bottom
 14. expo-build-properties : native build 설정
+15. cross-env : 운영체제와 상관없이 환경변수 설정가능
+16. react-native-dotenv : 5번(dotenv) 대체 > auto.d.ts 에 환경변수(.env.xxx) 내용추가 필요
+17. @shopify/flash-list : 리스트 표현 모듈
+18. @gorhom/bottom-sheet : 바텀 레이어 팝업
+19. expo-font, expo-image : 폰트와 이미지 관리 모듈
 ```
 
 ## 폴더 구조 및 파일기능
@@ -115,5 +127,26 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
     - expo-build-properties 설치 
     - app.json 파일에 설정 (mmkv, mmkvCore)
     - ios 폴더 이동 후 pod install
-
+8. android build 이슈
+    - expo prebuild 를 진행 후
+    - npx expo run:android 실행 시 
+      Incorrect package="com.tagerjs.framework" found in source AndroidManifest.xml
+      에러 발생한다.
+    - 에러 발생 이유는 build.gradle의 namespace 와 AndroidManifest 의 package 명의 불일치
+    - 7번의 IOS 빌드 에러와 마찬가지로 expo-build-properties 모듈을 사용하여 app.json 수정필요함
+      "android": {
+        "namespace": "com.tagerjs.framework"
+      }
 ```
+## Prime-base dependency list
+```markdown
+1. react-native-svg
+2. tailwind-variants
+3. react-i18next (제외작업중)
+4. moti
+5. @gorhom/bottom-sheet
+6. react-native-reanimated
+7. expo-image
+8. @shopify/flash-list
+```
+
