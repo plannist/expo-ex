@@ -1,10 +1,10 @@
 import {Stack, useRouter} from "expo-router";
-import {Button, TextInput, View, StyleSheet, ActivityIndicator} from "react-native";
+import { View, StyleSheet, ActivityIndicator} from "react-native";
 import {useTranslation} from "react-i18next";
 import {useEffect, useState} from "react";
 import {useSearchBoardTest, useCreateTest, useLoginTest} from "@/api/test/test";
 import {PROFILE, API_URL} from '@env';
-import { Text } from 'react-native-sj-prime-base';
+import {Text, TextField, Button} from 'react-native-sj-prime-base';
 import { FlashList } from "@shopify/flash-list";
 
 const Test = () => {
@@ -77,10 +77,40 @@ const Test = () => {
 
             <View className="flex-1 justify-items-center m-2">
                 {/*<Text face={'body'} size={"medium"}>Prime</Text>*/}
+                <TextField
+                    label={{
+                        text: t('translation.id'),
+                        className: 'text-sm',
+                    }}
+                    input={{
+                        mode:'default',
+                        placeholder:t('translation.id')
+                    }}
+                    onClear={()=>{
+                        console.log("clear");
+                    }}
+                />
+                <TextField
+                    label={{
+                        text: t('translation.name'),
+                        className: 'text-sm',
+                    }}
+                    input={{
+                        mode:'default',
+                        placeholder:t('translation.name')
+                    }}
+                />
+                <TextField
+                    label={{
+                        text: t('translation.age'),
+                        className: 'text-sm',
+                    }}
+                    input={{
+                        mode:'default',
+                        placeholder:t('translation.age')
+                    }}
+                />
 
-                <TextInput placeholder={t('translation.id')} style={{borderStyle:'solid', backgroundColor:'gray', height:50, marginBottom:10}}/>
-                <TextInput placeholder={t('translation.name')} style={{borderStyle:'solid', backgroundColor:'gray', height:50, marginBottom:10}}/>
-                <TextInput placeholder={t('translation.age')} style={{borderStyle:'solid', backgroundColor:'gray', height:50, marginBottom:10}}/>
 
                 {/* flash-list 사용법 */}
                 <FlashList
@@ -90,15 +120,36 @@ const Test = () => {
                 />
 
                 <View className={'[width:80%] flex-row justify-between'}>
-
-                    <Button title={t('com.trans')} onPress={()=>{
-                        if(language === 'ko'){
-                            setLanguage('en');
-                        }else{
-                            setLanguage('ko');
-                        }
-                    }}/>
-                    <Button title={'뒤로가기'} onPress={()=>{router.back()}}/>
+                    <Button
+                        className={'flex-1'}
+                        disabled={false}
+                        loading={false}
+                        variant={'primaryLow'}
+                        text={t('com.trans')}
+                        shape={'round'}
+                        backgroundColor={'brand-primary-default'}
+                        textColor={'blue'}
+                        onPress={()=>{
+                            if(language === 'ko'){
+                                setLanguage('en');
+                            }else{
+                                setLanguage('ko');
+                            }
+                        }}
+                    />
+                    <Button
+                        className={'flex-1'}
+                        disabled={false}
+                        loading={false}
+                        variant={'secondary'}
+                        text={'뒤로가기'}
+                        shape={'round'}
+                        backgroundColor={'brand-primary-default'}
+                        textColor={'blue'}
+                        onPress={()=>{
+                            router.back();
+                        }}
+                    />
                 </View>
 
             </View>
