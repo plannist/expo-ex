@@ -6,8 +6,13 @@ const path = require('path');
 // 환경 변수에서 'env' 값을 가져옵니다. 기본값은 'local'로 설정합니다.
 const env = process.env.env || 'local';
 
-const envFilePath = path.resolve(__dirname, `.env.${env}`);
-const outputFilePath = path.resolve(__dirname, 'auto.d.ts');
+const rootDir = process.cwd();
+console.log(rootDir);  // 프로젝트 루트 경로 출력
+
+// const envFilePath = path.resolve(__dirname, `.env.${env}`);
+// const outputFilePath = path.resolve(__dirname, 'auto.d.ts');
+const envFilePath = path.resolve(rootDir, `.env.${env}`);
+const outputFilePath = path.resolve(rootDir, 'auto.d.ts');
 
 try {
     // .env 파일 읽기

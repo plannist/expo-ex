@@ -30,14 +30,14 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
 ## AOS 디버깅 순서
 ```sh
     pnpm run start
-    expo prebuild
+    npx expo prebuild
     npx expo run:android
 ```
 
 ## IOS 디버깅 순서
 ```sh
     pnpm run start
-    expo prebuild
+    npx expo prebuild
     cd ios
     pod install
     xcode > build 버튼 클릭
@@ -149,4 +149,8 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
 7. expo-image
 8. @shopify/flash-list
 ```
-
+## node script 설명
+```markdown
+1. "read-env" : auto.d.ts 의 @env 영역을 자동 생성할 스크립트
+2. "env:update" : 실행버튼 클릭으로 해당 profile에 정의된 환경변수를 auto.d.ts로 자동으로 생성해준다.
+```
