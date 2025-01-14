@@ -153,6 +153,15 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
 7. expo-image
 8. @shopify/flash-list
 ```
+## Prime-base issue list
+```markdown
+1. TextFiled
+    - input Props characterCount 오타 && 미동작
+    - onClear 이미지 미노출
+2. SocialButton
+    - kakao 버튼 크기 줄일때 css 깨짐
+```
+
 ## node script 설명
 ```markdown
 1. "read-env" : auto.d.ts 의 @env 영역을 자동 생성할 스크립트
