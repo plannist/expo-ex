@@ -1,14 +1,18 @@
+import { type AxiosError } from 'axios';
+import { createQuery } from 'react-query-kit';
 
-import client  from "@/api/client";
-import {createQuery} from "react-query-kit";
-import {AxiosError} from "axios";
+import client from '@/api/client';
 
 interface ComCdType {
-    comCdVal : string,
-    comCdValNm : string,
-    grpCd : string,
-    grpCdNm: string
+  comCdVal: string;
+  comCdValNm: string;
+  grpCd: string;
+  grpCdNm: string;
 }
+
+type comCds = {
+  list: ComCdType[];
+};
 
 //파라미터 변수
 type Variables = void;
@@ -16,16 +20,13 @@ type Variables = void;
 /**
  * 공통코드 조회 api
  */
-const useSearchComCode = createQuery<ComCdType, Variables, AxiosError>({
-    queryKey: ['comCd'],
-    fetcher: async (params: any) => {
-        const res = await client.get('https://run.mocky.io/v3/ca51e059-8228-4811-b0f7-c453c3dcd9bb', {params});
-        return res.data;
-    }
+const useSearchComCode = createQuery<comCds, Variables, AxiosError>({
+  queryKey: ['comCd'],
+  fetcher: async (params: any) => {
+    return await client
+      .get('https://run.mocky.io/v3/6d4f89a3-8c39-4bda-8345-8723cf1854d0', { params })
+      .then((res) => res.data);
+  }
 });
 
-
-
-export {
-    useSearchComCode,
-}
+export { useSearchComCode };

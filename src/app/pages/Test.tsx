@@ -6,6 +6,8 @@ import {
   useSearchBoardTest,
   useCreateTest,
   useLoginTest,
+  apiUserCreateTest,
+  apiLoginTest,
 } from '@/api/test/test';
 import { PROFILE, API_URL } from '@env';
 import {
@@ -18,8 +20,8 @@ import {
 import { FlashList } from '@shopify/flash-list';
 import { Ionicons } from '@expo/vector-icons';
 import { useUser } from '@/storage/userProvider';
-import { setUserData } from '@/storage/userStorage';
 import _ from 'lodash';
+import useUserStore from '@/store/userStore';
 
 const Test = () => {
   const router = useRouter();
@@ -29,7 +31,7 @@ const Test = () => {
   const [idText, setIdText] = useState('');
   const [searchText, setSearchText] = useState('');
 
-  const { setUser } = useUser();
+  const { setUser } = useUserStore();
 
   const DATA = [
     {
@@ -67,6 +69,16 @@ const Test = () => {
   useEffect(() => {
     console.log('PROFILE: ', PROFILE);
     console.log('API_URL: ', API_URL);
+
+    apiUserCreateTest({ name: '종석', job: 'developer' }).then((res) =>
+      console.log('apiUserCreateTest: ', res)
+    );
+
+    apiLoginTest({ email: 'eve.holt@reqres.in', password: 'cityslicka' }).then(
+      (res) => {
+        console.log('apiLoginTest: ', res);
+      }
+    );
   }, []);
 
   useEffect(() => {
@@ -83,18 +95,11 @@ const Test = () => {
         sex: 'M',
         profileUrl: '',
       });
-      setUserData({
-        id: userData?.id,
-        name: userData?.name,
-        age: '30',
-        sex: 'M',
-        profileUrl: '',
-      });
     }
   }, [userData]);
 
   useEffect(() => {
-    console.log('useInputTest data :: >>', data);
+    console.log('login test api response :: >>', data);
   }, [data]);
 
   useEffect(() => {

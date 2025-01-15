@@ -36,6 +36,12 @@ module.exports = {
         prefer: 'type-imports',
         fixStyle: 'inline-type-imports',
         disallowTypeAnnotations: true,
+
+        singleQuote: true,
+        endOfLine: 'auto',
+        trailingComma: 'none',
+        printWidth: 200,
+        bracketSpacing: true, // 객체 중괄호 간격 허용
       },
     ], // Ensure `import type` is used when it's necessary
     'import/prefer-default-export': 'off', // Named export is easier to refactor automatically
