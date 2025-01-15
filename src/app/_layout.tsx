@@ -1,17 +1,10 @@
 import '../global.css';
 import { Slot, Stack } from 'expo-router';
 import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from '@react-navigation/native';
+import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
-import {
-  configureReanimatedLogger,
-  ReanimatedLogLevel,
-} from 'react-native-reanimated';
+import { configureReanimatedLogger, ReanimatedLogLevel } from 'react-native-reanimated';
 
 import { useColorScheme } from 'react-native';
 
@@ -24,11 +17,10 @@ import { StatusBar } from 'expo-status-bar';
 
 import '@/lang/i18n';
 import { useTranslation } from 'react-i18next';
-import { UserProvider } from '@/storage/userProvider';
 
 configureReanimatedLogger({
   level: ReanimatedLogLevel.warn,
-  strict: false, // Disable strict moder
+  strict: false // Disable strict moder
 });
 
 // Keep the splash screen visible while we fetch resources
@@ -37,7 +29,7 @@ SplashScreen.preventAutoHideAsync();
 // Set the animation options. This is optional.
 SplashScreen.setOptions({
   duration: 1000,
-  fade: true,
+  fade: true
 });
 
 const Layout = () => {
@@ -64,26 +56,16 @@ const Layout = () => {
   }, []);
 
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-    >
+    <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <GestureHandlerRootView style={styles.container} className={'dark'}>
-        <ThemeProvider
-          value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}
-        >
+        <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
           <QueryClientProvider client={queryClient}>
-            <UserProvider>
-              <Stack>
-                {/*<Stack.Screen name='Board'/>*/}
-                <Stack.Screen
-                  name="(bottom)"
-                  options={{ headerShown: false }}
-                />
-              </Stack>
-              {/* 상태 표시줄 색상 변경 */}
-              <StatusBar style="auto" backgroundColor="rgb(242, 242, 242)" />
-            </UserProvider>
+            <Stack>
+              {/*<Stack.Screen name='Board'/>*/}
+              <Stack.Screen name="(bottom)" options={{ headerShown: false }} />
+            </Stack>
+            {/* 상태 표시줄 색상 변경 */}
+            <StatusBar style="auto" backgroundColor="rgb(242, 242, 242)" />
           </QueryClientProvider>
         </ThemeProvider>
       </GestureHandlerRootView>
@@ -95,6 +77,6 @@ export default Layout;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-  },
+    flex: 1
+  }
 });

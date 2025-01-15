@@ -2,24 +2,11 @@ import { Stack, useRouter } from 'expo-router';
 import { View, StyleSheet, ActivityIndicator } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
-import {
-  useSearchBoardTest,
-  useCreateTest,
-  useLoginTest,
-  apiUserCreateTest,
-  apiLoginTest,
-} from '@/api/test/test';
+import { useSearchBoardTest, useCreateTest, useLoginTest, apiUserCreateTest, apiLoginTest } from '@/api/test/test';
 import { PROFILE, API_URL } from '@env';
-import {
-  Text,
-  TextField,
-  Button,
-  SocialButton,
-  SearchBar,
-} from 'react-native-sj-prime-base';
+import { Text, TextField, Button, SocialButton, SearchBar } from 'react-native-sj-prime-base';
 import { FlashList } from '@shopify/flash-list';
 import { Ionicons } from '@expo/vector-icons';
-import { useUser } from '@/storage/userProvider';
 import _ from 'lodash';
 import useUserStore from '@/store/userStore';
 
@@ -35,50 +22,46 @@ const Test = () => {
 
   const DATA = [
     {
-      title: 'First Item',
+      title: 'First Item'
     },
     {
-      title: 'Second Item',
-    },
+      title: 'Second Item'
+    }
   ];
 
   //react-query-kit
   const { data, isLoading, error } = useLoginTest({
     variables: {
       email: 'eve.holt@reqres.in',
-      password: 'cityslicka',
-    },
+      password: 'cityslicka'
+    }
   });
 
   const {
     data: userData,
     isLoading: userLoading,
-    error: userError,
+    error: userError
   } = useCreateTest({
-    variables: { name: '종석', job: 'developer' },
+    variables: { name: '종석', job: 'developer' }
   });
 
   const {
     data: boardData,
     isLoading: boardLoading,
-    error: boardError,
+    error: boardError
   } = useSearchBoardTest({
-    variables: { userId: 1, id: 1 },
+    variables: { userId: 1, id: 1 }
   });
 
   useEffect(() => {
     console.log('PROFILE: ', PROFILE);
     console.log('API_URL: ', API_URL);
 
-    apiUserCreateTest({ name: '종석', job: 'developer' }).then((res) =>
-      console.log('apiUserCreateTest: ', res)
-    );
+    apiUserCreateTest({ name: '종석', job: 'developer' }).then((res) => console.log('apiUserCreateTest: ', res));
 
-    apiLoginTest({ email: 'eve.holt@reqres.in', password: 'cityslicka' }).then(
-      (res) => {
-        console.log('apiLoginTest: ', res);
-      }
-    );
+    apiLoginTest({ email: 'eve.holt@reqres.in', password: 'cityslicka' }).then((res) => {
+      console.log('apiLoginTest: ', res);
+    });
   }, []);
 
   useEffect(() => {
@@ -93,7 +76,7 @@ const Test = () => {
         name: userData?.name,
         age: '30',
         sex: 'M',
-        profileUrl: '',
+        profileUrl: ''
       });
     }
   }, [userData]);
@@ -112,15 +95,14 @@ const Test = () => {
     }
   }, [language]);
 
-  if (isLoading || boardLoading || userLoading)
-    return <ActivityIndicator size="large" />;
+  if (isLoading || boardLoading || userLoading) return <ActivityIndicator size="large" />;
 
   return (
     <>
       <Stack.Screen
         options={{
           title: 'prime-base 테스트화면',
-          headerBackTitle: '',
+          headerBackTitle: ''
         }}
       />
 
@@ -166,13 +148,13 @@ const Test = () => {
           label={{
             text: t('translation.id'),
             className: 'text-sm',
-            required: true,
+            required: true
           }}
           input={{
             mode: 'default',
             placeholder: t('translation.id'),
             charactorCount: true,
-            value: idText,
+            value: idText
           }}
           onChangeText={(value) => setIdText(value)}
           onClear={() => {
@@ -182,21 +164,21 @@ const Test = () => {
         <TextField
           label={{
             text: t('translation.name'),
-            className: 'text-sm',
+            className: 'text-sm'
           }}
           input={{
             mode: 'default',
-            placeholder: t('translation.name'),
+            placeholder: t('translation.name')
           }}
         />
         <TextField
           label={{
             text: t('translation.age'),
-            className: 'text-sm',
+            className: 'text-sm'
           }}
           input={{
             mode: 'default',
-            placeholder: t('translation.age'),
+            placeholder: t('translation.age')
           }}
         />
 
@@ -218,7 +200,7 @@ const Test = () => {
           height={'h-[56px]'}
           leftIcon={{
             icon: <Ionicons name="checkmark-circle" size={20} color="red" />,
-            gap: 4,
+            gap: 4
           }}
         />
 
@@ -265,13 +247,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f5',
+    backgroundColor: '#f5f5f5'
   },
   buttonContainer: {
     flexDirection: 'row', // 좌우 정렬
     justifyContent: 'space-between', // 버튼 간 간격 확보
-    width: '80%', // 버튼 컨테이너의 너비 설정
-  },
+    width: '80%' // 버튼 컨테이너의 너비 설정
+  }
 });
 
 export default Test;

@@ -1,3 +1,4 @@
+/*
 import { MMKVLoader, useMMKVStorage } from 'react-native-mmkv-storage';
 
 interface User {
@@ -33,3 +34,4 @@ const removeUserData = async () => {
 };
 
 export { removeUserData, setUserData };
+*/

@@ -141,6 +141,7 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
       "android": {
         "namespace": "com.tagerjs.framework"
       }
+8. 
 ```
 ## Prime-base dependency list
 ```markdown

@@ -1,3 +1,4 @@
+/*
 import { createContext, type ReactNode, useContext } from 'react';
 import { MMKVLoader, useMMKVStorage } from 'react-native-mmkv-storage';
 
@@ -52,3 +53,4 @@ export const useUser = () => {
   }
   return context;
 };
+*/
