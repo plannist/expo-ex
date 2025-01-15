@@ -12,7 +12,8 @@ const Sona = () => {
 
   const { comCode, setComCode } = useComCodeStore();
 
-  const DATA = [
+  /*
+const DATA = [
     {
       comCdVal: '01',
       comCdValNm: '제휴',
@@ -32,6 +33,7 @@ const Sona = () => {
       grpCdNm: '제휴그룹'
     }
   ];
+  */
   useEffect(() => {
     if (!_.isEmpty(data?.list)) {
       // console.log('SONA data.list >> ', data?.list);
