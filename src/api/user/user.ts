@@ -16,10 +16,18 @@ type Variables = {
 
 const useSearchUser = createQuery<User, Variables, AxiosError>({
   queryKey: ['user'],
-  fetcher: async (params: any) => {
-    console.log('Variables : ', params);
-    return await client.get('https://jsonplaceholder.typicode.com/posts', { params }).then((res) => res.data);
-  }
+  /*  fetcher: async (params: any) => {
+    return await client
+      .get('https://6788bab32c874e66b7d611e9.mockapi.io/api/v1/user', { params })
+      .then((res) => res.data);
+  }*/
+  fetcher: async (params: any) => apiSearchUser(params)
 });
 
-export { useSearchUser };
+const apiSearchUser = async (params: any) => {
+  return await client
+    .get('https://6788bab32c874e66b7d611e9.mockapi.io/api/v1/user', { params })
+    .then((res) => res.data);
+};
+
+export { useSearchUser, apiSearchUser };

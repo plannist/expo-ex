@@ -6,7 +6,7 @@ import { FlashList } from '@shopify/flash-list';
 import { useSearchBoardTest } from '@/api/test/test';
 import { useRouter } from 'expo-router';
 
-const myPage = () => {
+const Board = () => {
   const router = useRouter();
   const [id, setId] = useState<number>(1);
   const [userId, setUserId] = useState<number>(1);
@@ -82,4 +82,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default myPage;
+export default Board;

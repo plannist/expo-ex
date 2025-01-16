@@ -17,11 +17,17 @@ const BottomTab = () => {
       title: 'storage example',
       order: 1
     },
-    myPage: {
+    StoreExample: {
       active: <FontAwesome size={28} name="cog" />,
       inactive: <FontAwesome size={28} name="cog" />,
-      title: '설정',
+      title: 'store example',
       order: 2
+    },
+    Board: {
+      active: <FontAwesome size={28} name="list" />,
+      inactive: <FontAwesome size={28} name="list" />,
+      title: '리스트',
+      order: 3
     }
   });
 
