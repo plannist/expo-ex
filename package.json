@@ -8,14 +8,15 @@
     "run:prod": "cross-env NODE_ENV=prod pnpm run start",
     "run": "pnpm run start",
     "start": "expo start",
-    "android": "expo run:android",
-    "ios": "expo run:ios",
-    "web": "expo start --web",
+    "android": "npx expo run:android",
+    "ios": "npx expo run:ios",
+    "web": "npx expo start --web",
     "doctor": "npx expo-doctor@latest",
     "read-env": "node script/generateEnvTypes.js",
     "env:update:local": "cross-env env=local pnpm run read-env",
     "env:update:dev": "cross-env env=dev pnpm run read-env",
-    "env:update:prod": "cross-env env=prod pnpm run read-env"
+    "env:update:prod": "cross-env env=prod pnpm run read-env",
+    "fix-reanimated-re-run": "npx expo start -c"
   },
   "dependencies": {
     "@gorhom/bottom-sheet": "^5.0.5",
@@ -42,7 +43,7 @@
     "react-native": "0.76.3",
     "react-native-dotenv": "^3.4.11",
     "react-native-gesture-handler": "~2.20.2",
-
+    "react-native-mmkv": "^3.2.0",
     "react-native-reanimated": "~3.16.1",
     "react-native-safe-area-context": "4.12.0",
     "react-native-screens": "~4.1.0",

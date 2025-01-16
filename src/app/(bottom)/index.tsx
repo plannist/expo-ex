@@ -3,7 +3,7 @@ import { Link, useRouter } from 'expo-router';
 import React from 'react';
 import { TopNavigation } from 'react-native-sj-prime-base';
 
-const index = () => {
+const Index = () => {
   const router = useRouter();
   return (
     <TopNavigation backgroundColor="#596E8E" barStyle="light-content">
@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default index;
+export default Index;

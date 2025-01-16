@@ -141,7 +141,9 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
       "android": {
         "namespace": "com.tagerjs.framework"
       }
-8. 
+8. ReanimatedError
+    - 다른 프로젝트 실행 후 npx expo run 하게 되면 babel-plugin 버전 충돌이슈
+    - 해결법 : nxp expo start -c
 ```
 ## Prime-base dependency list
 ```markdown

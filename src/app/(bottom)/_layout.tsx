@@ -11,10 +11,10 @@ const BottomTab = () => {
       title: 'Home',
       order: 0
     },
-    set: {
+    StorageExample: {
       active: <FontAwesome size={28} name="home" />,
       inactive: <FontAwesome size={28} name="home" />,
-      title: 'Me',
+      title: 'storage example',
       order: 1
     },
     myPage: {
@@ -36,7 +36,7 @@ const BottomTab = () => {
         <Tabs.Screen
             name="index"
             options={{
-                title: 'Home',
+                title: 'Index',
                 tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
             }}
         />
@@ -48,7 +48,7 @@ const BottomTab = () => {
             }}
         />
         <Tabs.Screen
-            name="set"
+            name="storageExample"
             options={{
                 title: 'App Setting',
                 tabBarIcon: ({ color }) => <FontAwesome size={28} name="cog" color={color} />,
