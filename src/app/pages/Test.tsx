@@ -95,7 +95,7 @@ const Test = () => {
     }
   }, [language]);
 
-  if (isLoading || boardLoading || userLoading) return <ActivityIndicator size="large" />;
+  // if (isLoading || boardLoading || userLoading) return <ActivityIndicator size="large" />;
 
   return (
     <>

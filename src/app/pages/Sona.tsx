@@ -47,8 +47,6 @@ const DATA = [
     console.log('공통코드 스토어 데이터 저장 확인 :: ', data?.list);
   }, [comCode]);
 
-  //TODO: 로딩바 구현
-  if (isLoading) return <ActivityIndicator size="large" />;
   //TODO: alert 구현
   if (error instanceof Error)
     return (

@@ -17,6 +17,8 @@ import { StatusBar } from 'expo-status-bar';
 
 import '@/lang/i18n';
 import { useTranslation } from 'react-i18next';
+import useLoadingStore from '@/store/loadingStore';
+import Loading from '@/components/com/Loading';
 
 configureReanimatedLogger({
   level: ReanimatedLogLevel.warn,
@@ -36,8 +38,17 @@ const Layout = () => {
   console.log('1. Layout >> ');
 
   const colorScheme = useColorScheme();
-  const queryClient = new QueryClient();
+  const queryClient = new QueryClient({
+    defaultOptions: {
+      queries: {
+        retry: 1, // 실패 시 재시도 횟수
+        refetchOnWindowFocus: false // 포커스 시 리패치 방지
+      }
+    }
+  });
   const { t, i18n } = useTranslation();
+
+  const { isLoading, setLoading } = useLoadingStore();
 
   useEffect(() => {
     console.log('2. useEffect >> ');
@@ -55,17 +66,22 @@ const Layout = () => {
     prepareApp();
   }, []);
 
+  useEffect(() => {
+    console.log('Loading >>', isLoading);
+  }, [isLoading]);
+
   return (
     <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <GestureHandlerRootView style={styles.container} className={'dark'}>
         <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
           <QueryClientProvider client={queryClient}>
             <Stack>
-              {/*<Stack.Screen name='Board'/>*/}
               <Stack.Screen name="(bottom)" options={{ headerShown: false }} />
             </Stack>
             {/* 상태 표시줄 색상 변경 */}
             <StatusBar style="auto" backgroundColor="rgb(242, 242, 242)" />
+            {/* 전역 Loading 관리 */}
+            <Loading />
           </QueryClientProvider>
         </ThemeProvider>
       </GestureHandlerRootView>

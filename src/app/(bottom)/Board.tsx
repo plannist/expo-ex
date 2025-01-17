@@ -24,8 +24,6 @@ const Board = () => {
     console.log('data: ', data);
   }, [data]);
 
-  if (isLoading) return <ActivityIndicator size="large" />;
-
   return (
     <TopNavigation backgroundColor="#596E8E" barStyle="light-content">
       <SubPageHeader exitEvent={() => router.back()} title={'내정보'} />
@@ -35,23 +33,19 @@ const Board = () => {
         </Text>
       </View>
       <View style={{ height: 500 }}>
-        {isLoading ? (
-          <ActivityIndicator size="large" color={'red'} className="pt-[200px]" />
-        ) : (
-          <FlashList
-            data={data}
-            renderItem={({ item }) => (
-              <>
-                <Text face={'body'} size={'medium'} weight={'regular'}>{`id: ${item.id}`}</Text>
-                <Text face={'body'} size={'medium'} weight={'regular'}>{`userId: ${item.userId}`}</Text>
-                <Text face={'body'} size={'medium'} weight={'regular'}>
-                  {item.title}
-                </Text>
-              </>
-            )}
-            estimatedItemSize={50}
-          />
-        )}
+        <FlashList
+          data={data}
+          renderItem={({ item }) => (
+            <>
+              <Text face={'body'} size={'medium'} weight={'regular'}>{`id: ${item.id}`}</Text>
+              <Text face={'body'} size={'medium'} weight={'regular'}>{`userId: ${item.userId}`}</Text>
+              <Text face={'body'} size={'medium'} weight={'regular'}>
+                {item.title}
+              </Text>
+            </>
+          )}
+          estimatedItemSize={50}
+        />
       </View>
 
       <View className="items-center">
