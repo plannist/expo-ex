@@ -1,4 +1,4 @@
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { useEffect, useState } from 'react';
 import { Button, SubPageHeader, Text, TopNavigation } from 'react-native-sj-prime-base';
 import { Ionicons } from '@expo/vector-icons';
@@ -8,7 +8,6 @@ import { useRouter } from 'expo-router';
 
 const Board = () => {
   const router = useRouter();
-  const [id, setId] = useState<number>(1);
   const [userId, setUserId] = useState<number>(1);
 
   const { data, isLoading, error } = useSearchBoardTest({
