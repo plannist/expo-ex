@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 
 type ComCode = {
-  comCdVal: string;
-  comCdValNm: string;
+  comCd: string;
+  comCdNm: string;
   grpCd: string;
   grpCdNm: string;
 };

@@ -14,11 +14,7 @@ const StoreExample = () => {
 
   const { setUser, user } = useUserStore();
   //유저 정보조회
-  const {
-    data,
-    isLoading: isLoadingLoading,
-    error
-  } = useSearchUser({
+  const { data, isLoading, error } = useSearchUser({
     variables: { id: id } //userId가 변경되면 api 호출됨
   });
 

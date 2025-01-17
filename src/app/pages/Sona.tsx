@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { ActivityIndicator } from 'react-native';
 import { Text } from 'react-native-sj-prime-base';
 import { useSearchComCode } from '@/api/com/comCode';
 import { FlashList } from '@shopify/flash-list';
@@ -8,43 +7,21 @@ import useComCodeStore from '@/store/comCodeStore';
 
 const Sona = () => {
   //react-query-kit
-  const { data = { list: [] }, isLoading, error } = useSearchComCode();
+  const { data, isLoading, error } = useSearchComCode();
 
   const { comCode, setComCode } = useComCodeStore();
 
-  /*
-const DATA = [
-    {
-      comCdVal: '01',
-      comCdValNm: '제휴',
-      grpCd: '01',
-      grpCdNm: '제휴그룹'
-    },
-    {
-      comCdVal: '02',
-      comCdValNm: '자사',
-      grpCd: '01',
-      grpCdNm: '제휴그룹'
-    },
-    {
-      comCdVal: '03',
-      comCdValNm: '용역',
-      grpCd: '01',
-      grpCdNm: '제휴그룹'
-    }
-  ];
-  */
   useEffect(() => {
-    if (!_.isEmpty(data?.list)) {
+    if (!_.isEmpty(data)) {
       // console.log('SONA data.list >> ', data?.list);
       if (!_.isEmpty(comCode)) {
-        setComCode(data.list);
+        setComCode(data);
       }
     }
   }, [data]);
 
   useEffect(() => {
-    console.log('공통코드 스토어 데이터 저장 확인 :: ', data?.list);
+    console.log('공통코드 스토어 데이터 저장 확인 :: ', data);
   }, [comCode]);
 
   //TODO: alert 구현
@@ -59,7 +36,7 @@ const DATA = [
     <>
       {/* flash-list 사용법 */}
       <FlashList
-        data={data.list}
+        data={data}
         // data={DATA}
         renderItem={({ item }) => (
           <>
@@ -67,7 +44,7 @@ const DATA = [
               그룹코드명: {item.grpCdNm}
             </Text>
             <Text face={'body'} size={'medium'}>
-              그룹코드명: {item.comCdValNm}
+              공통코드명: {item.comCdNm}
             </Text>
           </>
         )}
