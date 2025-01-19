@@ -1,11 +1,12 @@
 import { useSearchUser } from '@/api/user/user';
 import { useEffect, useRef, useState } from 'react';
-import { Button, Text, TopNavigation } from 'react-native-sj-prime-base';
+import { Button, SubPageHeader, Text, TopNavigation } from 'react-native-sj-prime-base';
 import { View } from 'react-native';
 import useUserStore from '@/store/userStore';
 import Profile from '@/components/user/Profile';
 import BottomSheet from '@gorhom/bottom-sheet';
 import UserListPopup from '@/components/user/UserListPopup';
+import { Stack, router } from 'expo-router';
 
 const StoreExample = () => {
   const [id, setId] = useState<string>('70');
@@ -19,7 +20,9 @@ const StoreExample = () => {
   });
 
   const onClosePopup = () => {
-    bottomSheetRef.current?.close();
+    // CHECK: IOS 와 android 같은 UI 표현을 위한 function 호출
+    // bottomSheetRef.current?.close();
+    bottomSheetRef.current?.snapToIndex(0);
   };
 
   useEffect(() => {
@@ -35,7 +38,8 @@ const StoreExample = () => {
 
   return (
     <TopNavigation backgroundColor="#596E8E" barStyle="light-content">
-      <View className="items-center justify-center pt-[100px]">
+      <SubPageHeader exitEvent={() => router.back()} title={'내정보'} />
+      <View className="items-center justify-center pt-[10px]">
         <Text face={'body'} size={'small'}>
           Tab [Store Example]
         </Text>

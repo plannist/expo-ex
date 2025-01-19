@@ -25,7 +25,7 @@ const Board = () => {
 
   return (
     <TopNavigation backgroundColor="#596E8E" barStyle="light-content">
-      <SubPageHeader exitEvent={() => router.back()} title={'내정보'} />
+      <SubPageHeader exitEvent={() => router.back()} title={'리스트테스트'} />
       <View className="items-center justify-center pt-[100px]">
         <Text face={'body'} size={'small'}>
           Tab [myPage]

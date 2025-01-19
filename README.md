@@ -144,6 +144,11 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
 8. ReanimatedError
     - 다른 프로젝트 실행 후 npx expo run 하게 되면 babel-plugin 버전 충돌이슈
     - 해결법 : nxp expo start -c
+9. IOS build 시 삭제한 module 을 찾을수 없다는 에러가 나오는 경우
+    - cd ios
+    - rm -rf Pods Podfile.lock
+    - pod install --repo-update
+
 ```
 ## Prime-base dependency list
 ```markdown

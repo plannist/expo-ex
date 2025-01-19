@@ -4,6 +4,7 @@ import { useSearchComCode } from '@/api/com/comCode';
 import { FlashList } from '@shopify/flash-list';
 import _ from 'lodash';
 import useComCodeStore from '@/store/comCodeStore';
+import { Stack } from 'expo-router';
 
 const Sona = () => {
   //react-query-kit
@@ -34,6 +35,14 @@ const Sona = () => {
 
   return (
     <>
+      <Stack.Screen
+        options={{
+          title: '공통코드조회',
+          headerBackTitle: '',
+          headerBackButtonDisplayMode: 'minimal'
+        }}
+      />
+
       {/* flash-list 사용법 */}
       <FlashList
         data={data}
