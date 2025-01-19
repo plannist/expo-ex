@@ -19,7 +19,7 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
 
 ## 시작명령어
 ```sh
-  expo start
+  pnpm run start
 ```
 
 ## EAS 빌드 명령어

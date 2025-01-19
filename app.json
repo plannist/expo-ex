@@ -1,5 +1,6 @@
 {
   "expo": {
+    "icon": "./assets/pngwing.com.png",
     "scheme": "acme",
     "userInterfaceStyle": "automatic",
     "orientation": "default",
