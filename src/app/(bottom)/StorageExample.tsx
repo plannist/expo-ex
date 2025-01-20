@@ -1,17 +1,39 @@
+/**
+ * @copyright Copyright 2025. SJSoftTech. All rights reserved.
+ * @file app/(bottom)/StorageExample.tsx
+ * @description 토큰 api 조회 및 storage 사용 예제
+ * @author RN framework
+ * @since 2025.01.20
+ * ---------------------------------------------------------------------
+ * Date                     AUTHOR                  MAJOR_ISSUE
+ * ---------------------------------------------------------------------
+ * 2025.01.20           park jong-suk        		신규 생성
+ */
+
 import { View, Text, StyleSheet } from 'react-native';
 import { useEffect, useState } from 'react';
 import _ from 'lodash';
 import { Button, TextField } from 'react-native-sj-prime-base';
 import { Ionicons } from '@expo/vector-icons';
-import { useTokenStorage } from '@/storage/useTokenStorage';
+import { useTokenStorage } from '@/storage/com/useTokenStorage';
 
 const storageExample = () => {
+  /**
+   * =====================================================================
+   *	변수 선언부
+   * =====================================================================
+   */
   const { token, accessToken, refreshToken, clearToken } = useTokenStorage();
 
   const [accessValue, setAccessValue] = useState<string>('');
 
   const [refreshValue, setRefreshValue] = useState<string>('');
 
+  /**
+   * =====================================================================
+   *	Hook
+   * =====================================================================
+   */
   useEffect(() => {
     console.log('lodash: ', _.union([1, 2, 3], [4]));
   }, []);

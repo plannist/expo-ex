@@ -1,9 +1,9 @@
 /**
  * @copyright Copyright 2025. SJSoftTech. All rights reserved.
  * @file app/pages/example/ComCode.tsx
- * @description
+ * @description 공통코드 api 조회 및 store 사용 예제
  * @author RN framework
- * @since 2024.03.11
+ * @since 2025.01.20
  * ---------------------------------------------------------------------
  * Date                     AUTHOR                  MAJOR_ISSUE
  * ---------------------------------------------------------------------

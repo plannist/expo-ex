@@ -1,3 +1,15 @@
+/**
+ * @copyright Copyright 2025. SJSoftTech. All rights reserved.
+ * @file api/com/test.ts
+ * @description example page 기능구현용 axios TEST (업무영역 미사용시 삭제가능)
+ * @author Canal framework
+ * @since 2025.01.20
+ * ---------------------------------------------------------------------
+ * Date                     AUTHOR                  MAJOR_ISSUE
+ * ---------------------------------------------------------------------
+ * 2025.01.20           park jong-suk        		신규 생성
+ */
+
 import { createQuery } from 'react-query-kit';
 import { AxiosError } from 'axios';
 import client from '@/api/client';

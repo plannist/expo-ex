@@ -1,3 +1,15 @@
+/**
+ * @copyright Copyright 2025. SJSoftTech. All rights reserved.
+ * @file api/com/comCode.ts
+ * @description 공통코드 조회 api
+ * @author Canal framework
+ * @since 2025.01.20
+ * ---------------------------------------------------------------------
+ * Date                     AUTHOR                  MAJOR_ISSUE
+ * ---------------------------------------------------------------------
+ * 2025.01.20           park jong-suk        		신규 생성
+ */
+
 import { type AxiosError } from 'axios';
 import { createQuery } from 'react-query-kit';
 

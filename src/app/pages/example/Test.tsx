@@ -1,8 +1,8 @@
 import { Stack, useRouter } from 'expo-router';
-import { View, StyleSheet, ActivityIndicator } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
-import { useSearchBoardTest, useCreateTest, useLoginTest, apiUserCreateTest, apiLoginTest } from '@/api/test/test';
+import { useSearchBoardTest, useCreateTest, useLoginTest, apiUserCreateTest, apiLoginTest } from '@/api/example/test';
 import { PROFILE, API_URL } from '@env';
 import { Text, TextField, Button, SocialButton, SearchBar } from 'react-native-sj-prime-base';
 import { FlashList } from '@shopify/flash-list';

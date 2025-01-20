@@ -2,7 +2,7 @@
  * @copyright Copyright 2025. SJSoftTech. All rights reserved.
  * @file app/(bottom)/StoreExample.tsx
  * @description userStore 활용 예시
- * @author Canal framework
+ * @author RN framework
  * @since 2025.01.20
  * ---------------------------------------------------------------------
  * Date                     AUTHOR                  MAJOR_ISSUE
@@ -10,14 +10,14 @@
  * 2025.01.20           park jong-suk        		신규 생성
  */
 
-import { useSearchUser } from '@/api/user/user';
+import { useSearchUser } from '@/api/example/user';
 import { useEffect, useRef, useState } from 'react';
 import { Button, SubPageHeader, Text, TopNavigation } from 'react-native-sj-prime-base';
 import { View } from 'react-native';
 import useUserStore from '@/store/userStore';
-import Profile from '@/components/user/Profile';
+import Profile from '@/components/example/Profile';
 import BottomSheet from '@gorhom/bottom-sheet';
-import UserListPopup from '@/components/user/UserListPopup';
+import UserListPopup from '@/components/example/UserListPopup';
 import { router } from 'expo-router';
 
 const StoreExample = () => {

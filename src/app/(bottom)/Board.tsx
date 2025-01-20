@@ -1,23 +1,50 @@
-import { StyleSheet, View } from 'react-native';
+/**
+ * @copyright Copyright 2025. SJSoftTech. All rights reserved.
+ * @file app/(bottom)/Board.tsx
+ * @description bottom navigation 게시판 예제
+ * @author RN framework
+ * @since 2025.01.20
+ * ---------------------------------------------------------------------
+ * Date                     AUTHOR                  MAJOR_ISSUE
+ * ---------------------------------------------------------------------
+ * 2025.01.20           park jong-suk        		신규 생성
+ */
+
+import { View } from 'react-native';
 import { useEffect, useState } from 'react';
 import { Button, SubPageHeader, Text, TopNavigation } from 'react-native-sj-prime-base';
 import { Ionicons } from '@expo/vector-icons';
 import { FlashList } from '@shopify/flash-list';
-import { useSearchBoardTest } from '@/api/test/test';
+import { useSearchBoardTest } from '@/api/example/test';
 import { useRouter } from 'expo-router';
 
 const Board = () => {
+  /**
+   * =====================================================================
+   *	변수 선언부
+   * =====================================================================
+   */
   const router = useRouter();
   const [userId, setUserId] = useState<number>(1);
-
   const { data, isLoading, error } = useSearchBoardTest({
     variables: { userId: userId } //userId가 변경되면 api 호출됨
   });
 
+  /**
+   * =====================================================================
+   *	함수
+   * =====================================================================
+   */
   const changeUserId = () => {
     setUserId((prev) => (prev === 1 ? 2 : 1));
     // setId((prev) => (prev === 1 ? 2 : 1));
   };
+
+  /**
+   * =====================================================================
+   *	Hook
+   * =====================================================================
+   */
 
   useEffect(() => {
     console.log('data: ', data);
@@ -66,13 +93,5 @@ const Board = () => {
     </TopNavigation>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
 
 export default Board;

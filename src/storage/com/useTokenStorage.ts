@@ -1,6 +1,17 @@
+/**
+ * @copyright Copyright 2025. SJSoftTech. All rights reserved.
+ * @file api/client.ts
+ * @description storage 사용하여 서버 통신 token 관리
+ * @author RN framework
+ * @since 2025.01.20
+ * ---------------------------------------------------------------------
+ * Date                     AUTHOR                  MAJOR_ISSUE
+ * ---------------------------------------------------------------------
+ * 2025.01.20           park jong-suk        		신규 생성
+ */
+
 import { useCallback, useState, useEffect } from 'react';
 import { storage } from '@/storage/storage';
-import _ from 'lodash';
 
 type TokenType = {
   accessToken: string;

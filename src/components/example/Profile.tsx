@@ -1,3 +1,15 @@
+/**
+ * @copyright Copyright 2025. SJSoftTech. All rights reserved.
+ * @file app/components/example/Profile.tsx
+ * @description pages 에서 사용할 components 활용 예시
+ * @author RN framework
+ * @since 2025.01.20
+ * ---------------------------------------------------------------------
+ * Date                     AUTHOR                  MAJOR_ISSUE
+ * ---------------------------------------------------------------------
+ * 2025.01.20           park jong-suk        		신규 생성
+ */
+
 import React from 'react';
 import { View, Text, Image } from 'react-native';
 import useUserStore from '@/store/userStore';

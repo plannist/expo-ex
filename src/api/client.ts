@@ -2,7 +2,7 @@
  * @copyright Copyright 2025. SJSoftTech. All rights reserved.
  * @file api/client.ts
  * @description axios 제공 client 설정 파일
- * @author Canal framework
+ * @author RN framework
  * @since 2025.01.20
  * ---------------------------------------------------------------------
  * Date                     AUTHOR                  MAJOR_ISSUE
@@ -13,6 +13,7 @@
 // client.ts
 import axios from 'axios';
 import useLoadingStore from '@/store/loadingStore';
+import { storage } from '@/storage/storage';
 
 const client = axios.create({
   baseURL: 'https://jsonplaceholder.typicode.com', // API의 기본 URL
@@ -23,9 +24,9 @@ const client = axios.create({
 
 client.interceptors.request.use((config) => {
   useLoadingStore.getState().setLoading(true);
-  // 인증 토큰 추가
-  // config.headers.Authorization = `Bearer ${localStorage.getItem("token")}`;
-  config.headers.Authorization = `Bearer 123456789`;
+  // TODO: 인증 토큰 설정 추가작업 필요
+  const accessToken = storage.getString('accessToken');
+  if (accessToken) config.headers.Authorization = `Bearer ${accessToken}`;
   return config;
 });
 

@@ -1,4 +1,16 @@
-import { View, Text, StyleSheet, Button } from 'react-native';
+/**
+ * @copyright Copyright 2025. SJSoftTech. All rights reserved.
+ * @file app/(bottom)/index.tsx
+ * @description bottom navigation default page
+ * @author RN framework
+ * @since 2025.01.20
+ * ---------------------------------------------------------------------
+ * Date                     AUTHOR                  MAJOR_ISSUE
+ * ---------------------------------------------------------------------
+ * 2025.01.20           park jong-suk        		신규 생성
+ */
+
+import { View, Text, Button } from 'react-native';
 import { Link, useRouter } from 'expo-router';
 import React from 'react';
 import { TopNavigation } from 'react-native-sj-prime-base';
@@ -39,12 +51,5 @@ const Index = () => {
     </TopNavigation>
   );
 };
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  }
-});
 
 export default Index;
