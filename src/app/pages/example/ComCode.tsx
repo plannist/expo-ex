@@ -1,8 +1,7 @@
 /**
  * @copyright Copyright 2025. SJSoftTech. All rights reserved.
- * @file app/pages/Sona.tsx
- * @description  Redux의 useDispatch와 useSelector 훅을 타입화하여
- * flash-list 사용법 & api 호출 예제
+ * @file app/pages/example/ComCode.tsx
+ * @description
  * @author RN framework
  * @since 2024.03.11
  * ---------------------------------------------------------------------
@@ -19,7 +18,7 @@ import _ from 'lodash';
 import useComCodeStore from '@/store/comCodeStore';
 import { Stack } from 'expo-router';
 
-const Sona = () => {
+const ComCode = () => {
   /**
    * =====================================================================
    *	변수 선언부
@@ -98,4 +97,4 @@ const Sona = () => {
     </>
   );
 };
-export default Sona;
+export default ComCode;
