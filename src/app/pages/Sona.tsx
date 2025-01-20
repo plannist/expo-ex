@@ -3,7 +3,7 @@
  * @file app/pages/Sona.tsx
  * @description  Redux의 useDispatch와 useSelector 훅을 타입화하여
  * flash-list 사용법 & api 호출 예제
- * @author Canal framework
+ * @author RN framework
  * @since 2024.03.11
  * ---------------------------------------------------------------------
  * Date                     AUTHOR                  MAJOR_ISSUE

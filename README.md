@@ -75,10 +75,17 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
     script [node 스크립트 파일]
     src
       |_ api [영역별 서버 통신]
+        |_ com (공통)
+        |_ ...
       |_ app
           |_ (bottom) [bottom navigation]
           |_ pages [화면]
+            |_ com (공통)
+            |_ ...
           |_ components [화면구성, 팝업 등]
+            |_ com (공통)
+            |_ ui (svg components)
+            |_ ...
       |_ lang [다국어]
       |_ storage [토큰, 세션 등]
       |_ store [공통코드 등]
@@ -108,6 +115,9 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
 4. src/app 하위는 .tsx 형식으로 작성한다.
 5. lang 하위는 .json 형식으로 작성한다.
 6. 화면의 재사용가능한 components 와 popup 요소는 src/app/components 에 .tsx 형식으로 저장한다.
+7. pages 에는 최상위 component 가 위치하며 구성하고있는 components 들은 src/components 하위 업무폴더에 위치 시킨다.
+8. app/_layout.tsx, app/(bottom)/_layout.tsx, app/(bottom)/index.tsx 를 제외한 모든 .tsx 파일은 대문자로 시작한다.
+
 
 ```
 ## Issue

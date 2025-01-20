@@ -38,7 +38,7 @@ const StoreExample = () => {
 
   return (
     <TopNavigation backgroundColor="#596E8E" barStyle="light-content">
-      <SubPageHeader exitEvent={() => router.back()} title={'내정보'} subTitle={'내정보'} />
+      <SubPageHeader exitEvent={() => router.back()} title={'내정보'} />
       <View className="items-center justify-center pt-[10px]">
         <Text face={'body'} size={'small'}>
           Tab [Store Example]

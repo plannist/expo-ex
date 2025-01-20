@@ -1,18 +1,16 @@
 /**
  * @copyright Copyright 2025. SJSoftTech. All rights reserved.
- * @file app/pages/Sona.tsx
- * @description  Redux의 useDispatch와 useSelector 훅을 타입화하여
- * flash-list 사용법 & api 호출 예제
+ * @file app/_layout.tsx
+ * @description app 실행시 최초 실행되는 파일
  * @author Canal framework
- * @since 2024.03.11
+ * @since 2025.01.20
  * ---------------------------------------------------------------------
  * Date                     AUTHOR                  MAJOR_ISSUE
  * ---------------------------------------------------------------------
  * 2025.01.20           park jong-suk        		신규 생성
  */
-
 import '../global.css';
-import { Slot, Stack } from 'expo-router';
+import { Stack } from 'expo-router';
 import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -26,11 +24,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 
-import { StatusBar } from 'expo-status-bar';
-
 import '@/lang/i18n';
-import { useTranslation } from 'react-i18next';
-import useLoadingStore from '@/store/loadingStore';
 import Loading from '@/components/com/Loading';
 
 configureReanimatedLogger({
@@ -49,7 +43,11 @@ SplashScreen.setOptions({
 
 const Layout = () => {
   console.log('1. Layout >> ');
-
+  /**
+   * =====================================================================
+   *	변수 선언부
+   * =====================================================================
+   */
   const colorScheme = useColorScheme();
   const queryClient = new QueryClient({
     defaultOptions: {
@@ -59,10 +57,18 @@ const Layout = () => {
       }
     }
   });
-  const { t, i18n } = useTranslation();
 
-  const { isLoading, setLoading } = useLoadingStore();
+  /**
+   * =====================================================================
+   *	함수
+   * =====================================================================
+   */
 
+  /**
+   * =====================================================================
+   *	Hook
+   * =====================================================================
+   */
   useEffect(() => {
     console.log('2. useEffect >> ');
 
@@ -79,10 +85,6 @@ const Layout = () => {
     prepareApp();
   }, []);
 
-  useEffect(() => {
-    console.log('Loading >>', isLoading);
-  }, [isLoading]);
-
   return (
     <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : 'height'}>
       <GestureHandlerRootView style={styles.container} className={'dark'}>
@@ -91,8 +93,6 @@ const Layout = () => {
             <Stack>
               <Stack.Screen name="(bottom)" options={{ headerShown: false }} />
             </Stack>
-            {/* 상태 표시줄 색상 변경 */}
-            <StatusBar style="auto" backgroundColor="rgb(242, 242, 242)" />
             {/* 전역 Loading 관리 */}
             <Loading />
           </QueryClientProvider>
