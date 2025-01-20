@@ -41,6 +41,14 @@ export default ({ config }: ConfigContext): ExpoConfig => {
         backgroundColor: '#2E3C4B'
       }
     },
+    ios: {
+      bundleIdentifier: 'com.tagerjs.framework',
+      infoPlist: {
+        NSAppTransportSecurity: {
+          NSAllowsArbitraryLoads: true //모든 HTTP 요청 허용
+        }
+      }
+    },
     web: {
       favicon: './assets/favicon.ico',
       bundler: 'metro'
