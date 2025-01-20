@@ -38,7 +38,7 @@ client.interceptors.response.use(
   (error) => {
     useLoadingStore.getState().setLoading(false);
     //로깅 또는 전역 에러 처리
-    console.error(error);
+    console.error('AXIOS 전역 ERROR >> ', error);
     return Promise.reject(error);
   }
 );

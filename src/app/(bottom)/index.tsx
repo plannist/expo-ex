@@ -42,7 +42,7 @@ const Index = () => {
                   공통코드조회
                 </Link>
 
-                <Button title={'사용자정보'} onPress={() => router.push('/pages/example/Test')} />
+                <Button title={'폼예제'} onPress={() => router.push('/pages/example/Test')} />
               </View>
             </View>
           </View>

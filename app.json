@@ -1,0 +1,55 @@
+{
+  "expo": {
+    "icon": "./assets/pngwing.com.png",
+    "scheme": "acme",
+    "userInterfaceStyle": "automatic",
+    "orientation": "default",
+    "newArchEnabled": true,
+    "android": {
+      "softwareKeyboardLayoutMode": "pan",
+      "package": "com.tagerjs.framework"
+    },
+    "web": {
+      "output": "static",
+      "bundler": "metro"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "https://n"
+        }
+      ]
+    ,
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#2E3C4B",
+          "image": "./assets/pngwing.com.png",
+          "imageWidth": 150
+        }
+      ]
+    ,
+      [
+        "expo-build-properties",
+        {
+          "ios": {},
+          "android": {
+            "namespace": "com.tagerjs.framework"
+          }
+        }
+      ]
+    ],
+    "name": "framework",
+    "slug": "framework",
+    "extra": {
+      "eas": {
+        "projectId": "ddafd25f-bde9-4e77-b64b-c34ea130aa7c"
+      }
+    },
+    "owner": "tagerjs",
+    "ios": {
+      "bundleIdentifier": "com.tagerjs.framework"
+    }
+  }
+}

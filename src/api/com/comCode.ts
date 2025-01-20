@@ -36,10 +36,8 @@ const useSearchComCode = createQuery<comCds, Variables, AxiosError>({
 });
 
 const apiSearchComCode = async (params: any) => {
-  console.log('apiSearchUser.param >> ', params);
-  return await client
-    .get('https://6788bab32c874e66b7d611e9.mockapi.io/api/v1/comCode', { params })
-    .then((res) => res.data);
+  console.log('apiSearchComCode.param >> ', params);
+  return await client.get('https://6788bab32c874e66b7d611e9.mockapi.io/api/v1/comCode').then((res) => res.data);
 };
 
 /**
@@ -47,7 +45,7 @@ const apiSearchComCode = async (params: any) => {
  * TEST server block-hiking 운영기 - /home/climb/deploy/chat
  */
 const apiSearchPost = async (params: any) => {
-  console.log('apiSearchUser.param >> ', params);
+  console.log('apiSearchPost.param >> ', params);
   return await client.post('http://1.248.227.165:8081/init', params).then((res) => res.data);
 };
 

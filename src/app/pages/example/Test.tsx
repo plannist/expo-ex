@@ -1,10 +1,18 @@
-import { Stack, useRouter } from 'expo-router';
+import { router, Stack, useRouter } from 'expo-router';
 import { View, StyleSheet } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { useSearchBoardTest, useCreateTest, useLoginTest, apiUserCreateTest, apiLoginTest } from '@/api/example/test';
 import { PROFILE, API_URL } from '@env';
-import { Text, TextField, Button, SocialButton, SearchBar } from 'react-native-sj-prime-base';
+import {
+  Text,
+  TextField,
+  Button,
+  SocialButton,
+  SearchBar,
+  TopNavigation,
+  SubPageHeader
+} from 'react-native-sj-prime-base';
 import { FlashList } from '@shopify/flash-list';
 import { Ionicons } from '@expo/vector-icons';
 import _ from 'lodash';
@@ -98,14 +106,8 @@ const Test = () => {
   // if (isLoading || boardLoading || userLoading) return <ActivityIndicator size="large" />;
 
   return (
-    <>
-      <Stack.Screen
-        options={{
-          title: 'prime-base 테스트화면',
-          headerBackTitle: ''
-        }}
-      />
-
+    <TopNavigation backgroundColor="#596E8E" barStyle="light-content">
+      <SubPageHeader exitEvent={() => router.back()} title={'Form 예제'} />
       <View className="flex-1 p-4">
         <SearchBar
           backgroundColor={'#F3F4F6'}
@@ -238,7 +240,7 @@ const Test = () => {
           />
         </View>
       </View>
-    </>
+    </TopNavigation>
   );
 };
 

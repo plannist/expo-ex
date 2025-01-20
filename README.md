@@ -65,6 +65,8 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
 18. @gorhom/bottom-sheet : 바텀 레이어 팝업
 19. expo-font, expo-image : 폰트와 이미지 관리 모듈
 20. app-icon-badge : 아이콘에 버전과 빌드 환경표시용 관리 모듈
+21. react-hook-form : form 데이터 관리 모듈
+22. zod : 스키마 유효성을 검사하는 모듈로 react-hook-form과 함께 사용
 ```
 
 ## 폴더 구조 및 파일기능
@@ -94,7 +96,8 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
     .env.local
     .env.prod
     .npmrc
-    app.json
+    app.json (삭제예정)
+    app.config.ts
     auto.d.ts [사용자 type 지정]
     bable.config.js
     eas.json
@@ -159,7 +162,7 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
     - cd ios
     - rm -rf Pods Podfile.lock
     - pod install --repo-update
-
+10. app-icon-badge 사용시 이미지 사이즈 1024x1024 최적
 ```
 ## Prime-base dependency list
 ```markdown
