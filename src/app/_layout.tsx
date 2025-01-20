@@ -1,3 +1,16 @@
+/**
+ * @copyright Copyright 2025. SJSoftTech. All rights reserved.
+ * @file app/pages/Sona.tsx
+ * @description  Redux의 useDispatch와 useSelector 훅을 타입화하여
+ * flash-list 사용법 & api 호출 예제
+ * @author Canal framework
+ * @since 2024.03.11
+ * ---------------------------------------------------------------------
+ * Date                     AUTHOR                  MAJOR_ISSUE
+ * ---------------------------------------------------------------------
+ * 2025.01.20           park jong-suk        		신규 생성
+ */
+
 import '../global.css';
 import { Slot, Stack } from 'expo-router';
 import { KeyboardAvoidingView, Platform, StyleSheet, View } from 'react-native';

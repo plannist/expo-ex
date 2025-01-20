@@ -30,4 +30,13 @@ const apiSearchComCode = async (params: any) => {
     .then((res) => res.data);
 };
 
-export { useSearchComCode, apiSearchComCode };
+/**
+ * post 요청 테스트 (@RequestBody 요청 확인)
+ * TEST server block-hiking 운영기 - /home/climb/deploy/chat
+ */
+const apiSearchPost = async (params: any) => {
+  console.log('apiSearchUser.param >> ', params);
+  return await client.post('http://1.248.227.165:8081/init', params).then((res) => res.data);
+};
+
+export { useSearchComCode, apiSearchComCode, apiSearchPost };

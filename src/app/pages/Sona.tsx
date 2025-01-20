@@ -1,17 +1,46 @@
+/**
+ * @copyright Copyright 2025. SJSoftTech. All rights reserved.
+ * @file app/pages/Sona.tsx
+ * @description  Redux의 useDispatch와 useSelector 훅을 타입화하여
+ * flash-list 사용법 & api 호출 예제
+ * @author Canal framework
+ * @since 2024.03.11
+ * ---------------------------------------------------------------------
+ * Date                     AUTHOR                  MAJOR_ISSUE
+ * ---------------------------------------------------------------------
+ * 2025.01.20           park jong-suk        		신규 생성
+ */
+
 import { useEffect } from 'react';
 import { Text } from 'react-native-sj-prime-base';
-import { useSearchComCode } from '@/api/com/comCode';
+import { apiSearchPost, useSearchComCode } from '@/api/com/comCode';
 import { FlashList } from '@shopify/flash-list';
 import _ from 'lodash';
 import useComCodeStore from '@/store/comCodeStore';
 import { Stack } from 'expo-router';
 
 const Sona = () => {
+  /**
+   * =====================================================================
+   *	변수 선언부
+   * =====================================================================
+   */
   //react-query-kit
   const { data, isLoading, error } = useSearchComCode();
 
   const { comCode, setComCode } = useComCodeStore();
 
+  /**
+   * =====================================================================
+   *	함수
+   * =====================================================================
+   */
+
+  /**
+   * =====================================================================
+   *	Hook
+   * =====================================================================
+   */
   useEffect(() => {
     if (!_.isEmpty(data)) {
       // console.log('SONA data.list >> ', data?.list);
@@ -20,6 +49,13 @@ const Sona = () => {
       }
     }
   }, [data]);
+
+  useEffect(() => {
+    //
+    apiSearchPost({ jijumCd: '1' }).then((res) => {
+      console.log('@responseBody post 요청 결과: ', res);
+    });
+  }, []);
 
   useEffect(() => {
     console.log('공통코드 스토어 데이터 저장 확인 :: ', data);
