@@ -4,11 +4,22 @@ import { useTranslation } from 'react-i18next';
 import { useEffect, useState } from 'react';
 import { useSearchBoardTest, useCreateTest, useLoginTest, apiUserCreateTest, apiLoginTest } from '@/api/example/test';
 import { PROFILE, API_URL } from '@env';
-import { Text, TextField, Button, SocialButton, SearchBar } from 'react-native-sj-prime-base';
+import {
+  Text,
+  TextField,
+  Button,
+  SocialButton,
+  SearchBar,
+  TopNavigation,
+  SubPageHeader
+} from 'react-native-sj-prime-base';
 import { FlashList } from '@shopify/flash-list';
 import { Ionicons } from '@expo/vector-icons';
 import _ from 'lodash';
 import useUserStore from '@/store/userStore';
+import { z } from 'zod';
+import { Controller, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 const Test = () => {
   const router = useRouter();
@@ -19,6 +30,32 @@ const Test = () => {
   const [searchText, setSearchText] = useState('');
 
   const { setUser } = useUserStore();
+
+  const signUpSchema = z
+    .object({
+      email: z.string().email({ message: '유효한 이메일 주소를 입력해주세요.' }),
+      password: z
+        .string()
+        .min(8, { message: '비밀번호는 최소 8자 이상이어야 합니다.' })
+        .regex(/^(?=.*[a-zA-Z])(?=.*\d)(?=.*[!@#$%^&*])/, '비밀번호는 문자, 숫자, 특수문자를 포함해야 합니다.'),
+      confirmPassword: z.string()
+    })
+    .refine((data) => data.password === data.confirmPassword, {
+      message: '비밀번호가 일치하지 않습니다.',
+      path: ['confirmPassword']
+    });
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors }
+  } = useForm({
+    resolver: zodResolver(signUpSchema)
+  });
+
+  const onSubmit = (data: any) => {
+    console.log('submit data: ', data);
+  };
 
   const DATA = [
     {
@@ -95,17 +132,16 @@ const Test = () => {
     }
   }, [language]);
 
-  // if (isLoading || boardLoading || userLoading) return <ActivityIndicator size="large" />;
-
   return (
-    <>
+    <TopNavigation backgroundColor="#596E8E" barStyle="light-content">
+      <SubPageHeader exitEvent={() => router.back()} title={'폼사용예제'} />
       <Stack.Screen
         options={{
-          title: 'prime-base 테스트화면',
-          headerBackTitle: ''
+          title: '',
+          headerBackTitle: '',
+          headerShown: false
         }}
       />
-
       <View className="flex-1 p-4">
         <SearchBar
           backgroundColor={'#F3F4F6'}
@@ -144,23 +180,31 @@ const Test = () => {
           }}
         />
 
-        <TextField
-          label={{
-            text: t('translation.id'),
-            className: 'text-sm',
-            required: true
-          }}
-          input={{
-            mode: 'default',
-            placeholder: t('translation.id'),
-            charactorCount: true,
-            value: idText
-          }}
-          onChangeText={(value) => setIdText(value)}
-          onClear={() => {
-            setIdText('');
-          }}
+        <Controller
+          control={control}
+          name={'email'}
+          render={({ field }) => (
+            <TextField
+              label={{
+                text: t('translation.id'),
+                className: 'text-sm',
+                required: true
+              }}
+              input={{
+                mode: 'default',
+                placeholder: t('translation.id'),
+                charactorCount: true,
+                value: idText
+              }}
+              onChangeText={(value) => setIdText(value)}
+              onClear={() => {
+                setIdText('');
+              }}
+            />
+          )}
+          //
         />
+
         <TextField
           label={{
             text: t('translation.name'),
@@ -202,6 +246,7 @@ const Test = () => {
             icon: <Ionicons name="checkmark-circle" size={20} color="red" />,
             gap: 4
           }}
+          onPress={handleSubmit(onSubmit)}
         />
 
         <View className="flex-row justify-between items-center mt-4">
@@ -238,7 +283,7 @@ const Test = () => {
           />
         </View>
       </View>
-    </>
+    </TopNavigation>
   );
 };
 
