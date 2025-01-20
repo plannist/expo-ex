@@ -64,6 +64,7 @@ Use [Expo Router](https://docs.expo.dev/router/introduction/) with [Nativewind](
 17. @shopify/flash-list : 리스트 표현 모듈
 18. @gorhom/bottom-sheet : 바텀 레이어 팝업
 19. expo-font, expo-image : 폰트와 이미지 관리 모듈
+20. app-icon-badge : 아이콘에 버전과 빌드 환경표시용 관리 모듈
 ```
 
 ## 폴더 구조 및 파일기능
